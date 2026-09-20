@@ -1,57 +1,58 @@
 # Raman Spectroscopy Analyzer
 
-Interaktywna aplikacja Streamlit do analizy widm Ramana: korekta linii bazowej,
-normalizacja, wygładzanie, detekcja i dopasowanie pików oraz eksport wyników.
+An interactive Streamlit app for analyzing Raman spectra: baseline correction,
+normalization, smoothing, peak detection and fitting, and result export.
 
-Pełna specyfikacja projektu (architektura, uzasadnienie wersji zależności,
-bezpieczeństwo danych): zobacz [`SPEC.md`](SPEC.md).
+Full project specification (architecture, dependency version rationale, data
+security): see [`SPEC.md`](SPEC.md).
 
 🚀 **Live demo:** [raman-spectroscopy-analyzer.streamlit.app](https://raman-spectroscopy-analyzer.streamlit.app/)
 
-## Funkcje
+## Features
 
-- Wczytanie widma: jedno z 3 przykładowych widm CNT-COOH albo własny plik `.txt`
-  (dwie kolumny: Wavenumber, Intensity) — upload wspiera też wiele plików naraz
-- Preprocessing: korekta linii bazowej (Linear / ALS), normalizacja, wygładzanie
-- Detekcja i dopasowanie pików (Lorentzian / Gaussian / Pseudo-Voigt)
-- Interaktywne wykresy Plotly (z fallbackiem do Matplotlib)
-- Eksport wyników: CSV (widmo/piki/dopasowanie), XLSX (wszystko w jednym pliku),
-  raport TXT — oraz **eksport wsadowy**: te same ustawienia zastosowane do
-  wszystkich wgranych plików naraz, spakowane do jednego ZIP
+- Spectrum loading: one of 3 sample CNT-COOH spectra, or your own `.txt` file
+  (two columns: Wavenumber, Intensity) — upload also supports multiple files at once
+- Preprocessing: baseline correction (Linear / ALS), normalization, smoothing
+- Peak detection and fitting (Lorentzian / Gaussian / Pseudo-Voigt)
+- Interactive Plotly charts (with a Matplotlib fallback)
+- Result export: CSV (spectrum/peaks/fit), XLSX (everything in one file),
+  a TXT report — plus **batch export**: the same settings applied to every
+  uploaded file at once, packaged into a single ZIP
 
-## Zrzuty ekranu
+## Screenshots
 
-**Data Overview** — metadane wczytanego pliku i podgląd surowego widma:
+**Data Overview** — metadata of the loaded file and a preview of the raw spectrum:
 
 ![Data Overview](screenshots/data-overview.png)
 
-**Preprocessing — korekta linii bazowej** — widmo surowe z dopasowaną linią bazową
-(u góry) i widmo po korekcie (u dołu), z widocznymi pasmami D, G i 2D:
+**Preprocessing — baseline correction** — the raw spectrum with the fitted
+baseline overlaid (top), and the corrected spectrum below, with the D, G and 2D
+bands clearly visible:
 
 ![Baseline correction](screenshots/baseline-correction.png)
 
-## Uruchomienie lokalne
+## Running locally
 
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Wymaga Pythona 3.11 (patrz `runtime.txt`).
+Requires Python 3.11 (see `runtime.txt`).
 
-## Testy
+## Tests
 
 ```bash
 pytest
 ```
 
-## Struktura projektu
+## Project structure
 
 ```
-app.py              # UI Streamlit (orkiestracja, bez logiki biznesowej)
-config/settings.py  # stałe i wartości domyślne
-utils/               # logika: wczytywanie danych, preprocessing, detekcja/dopasowanie
-                     # pików, wizualizacja, eksport, przetwarzanie wsadowe (batch)
-data/raw/            # przykładowe widma
-tests/               # testy pytest dla każdego modułu w utils/
+app.py              # Streamlit UI (orchestration, no business logic)
+config/settings.py  # constants and default values
+utils/               # logic: data loading, preprocessing, peak detection/fitting,
+                     # visualization, export, batch processing
+data/raw/            # sample spectra
+tests/               # pytest tests for each module in utils/
 ```
