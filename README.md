@@ -6,6 +6,8 @@ normalizacja, wygładzanie, detekcja i dopasowanie pików oraz eksport wyników.
 Pełna specyfikacja projektu (architektura, uzasadnienie wersji zależności,
 bezpieczeństwo danych): zobacz [`SPEC.md`](SPEC.md).
 
+🚀 **Live demo:** [raman-spectroscopy-analyzer.streamlit.app](https://raman-spectroscopy-analyzer.streamlit.app/)
+
 ## Funkcje
 
 - Wczytanie widma: jedno z 3 przykładowych widm CNT-COOH albo własny plik `.txt`
@@ -16,6 +18,17 @@ bezpieczeństwo danych): zobacz [`SPEC.md`](SPEC.md).
 - Eksport wyników: CSV (widmo/piki/dopasowanie), XLSX (wszystko w jednym pliku),
   raport TXT — oraz **eksport wsadowy**: te same ustawienia zastosowane do
   wszystkich wgranych plików naraz, spakowane do jednego ZIP
+
+## Zrzuty ekranu
+
+**Data Overview** — metadane wczytanego pliku i podgląd surowego widma:
+
+![Data Overview](screenshots/data-overview.png)
+
+**Preprocessing — korekta linii bazowej** — widmo surowe z dopasowaną linią bazową
+(u góry) i widmo po korekcie (u dołu), z widocznymi pasmami D, G i 2D:
+
+![Baseline correction](screenshots/baseline-correction.png)
 
 ## Uruchomienie lokalne
 
