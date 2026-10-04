@@ -56,3 +56,10 @@ utils/               # logic: data loading, preprocessing, peak detection/fittin
 data/raw/            # sample spectra
 tests/               # pytest tests for each module in utils/
 ```
+
+## Related projects
+
+Part of the same carbon-nanotube work:
+
+- [Carbon Nanotube Visualizer](https://github.com/slastrzelec/carbon-nanotube-visualizer) — structure and electronic-property modeling ([live demo](https://carbon-nanotube-visualizer.streamlit.app/))
+- [Carbon Nanotubes RAG System](https://github.com/slastrzelec/carbon-nanotubes-rag) — literature Q&A over the underlying research papers ([live demo](https://carbon-nanotubes-raman-rag.streamlit.app/))
